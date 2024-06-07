@@ -1,5 +1,14 @@
 components:
     schemas:
+        TimeSlot:
+            type: object
+            properties:
+                validityStart:
+                    type: time
+                    description: The activation starting time
+                validityEnd:
+                    type: time
+                    description: The activation end time
         RangeRule:
             type: object
             properties:
@@ -16,12 +25,8 @@ components:
                 author:
                     type: string
                     description: The user id of the creator of the rule
-                validityStart:
-                    type: time
-                    description: The activation starting time
-                validityEnd:
-                    type: time
-                    description: The activation end time
+                validity:
+                    $ref: "#/components/schemas/TimeSlot"
                 rule:
                     type: object
                     properties:
@@ -51,12 +56,8 @@ components:
                 author:
                     type: string
                     description: The user id of the creator of the rule
-                validityStart:
-                    type: time
-                    description: The activation starting time
-                validityEnd:
-                    type: time
-                    description: The activation end time
+                validity:
+                    $ref: "#/components/schemas/TimeSlot"
                 objectClass:
                     type: string
                     description: The object class that if recognized will trigger an intrusion anomaly
